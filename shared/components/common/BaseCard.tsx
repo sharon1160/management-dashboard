@@ -35,7 +35,7 @@ export const BaseCard = ({
           <CardDescription className="text-xs">{description}</CardDescription>
         )}
       </CardHeader>
-      <CardContent>{children}</CardContent>
+      <CardContent className="p-0">{children}</CardContent>
       <CardFooter className="w-full p-0">{footer}</CardFooter>
     </Card>
   )
