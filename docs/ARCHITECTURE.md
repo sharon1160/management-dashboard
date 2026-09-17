@@ -1,57 +1,60 @@
-# Architecture
+# Arquitectura
 
-This is the target architecture, not what exists today. Right now we only
-have app/ (with app/components/ui/). features/ and shared/ will show up as
-the project grows, but new code should already follow this structure.
+Esta es la arquitectura objetivo, no lo que existe hoy. Ahora mismo solo
+tenemos app/ (con app/components/ui/). features/ y shared/ van a aparecer
+a medida que el proyecto crezca, pero el código nuevo ya debería seguir
+esta estructura.
 
-## Layers
+## Capas
 
-app/ -> Next.js App Router. Only routing and composition, pages just import
-and arrange stuff from features/ and shared/. No business logic here.
+app/ -> Next.js App Router. Solo routing y composición, las páginas
+importan y organizan cosas de features/ y shared/. Sin lógica de negocio
+aquí.
 
-features/ -> one folder per business domain (auth, dashboard, items,
-navigation, theme...). Each feature is self-contained and only exposes
-itself through its index.ts. Everything else inside is private.
+features/ -> una carpeta por dominio de negocio (auth, dashboard, items,
+navigation, theme...). Cada feature es autocontenida y solo se expone a
+través de su index.ts. Todo lo demás adentro es privado.
 
-shared/ -> only business-agnostic code. If it's tied to one feature it
-belongs in that feature, not here. This is where the shadcn/ui primitives
-live (shared/ui), plus generic components, hooks, types and utils.
+shared/ -> solo código agnóstico de negocio. Si está atado a una feature
+específica, va en esa feature, no aquí. components/ui/ tiene las
+primitivas crudas de shadcn, components/common/ tiene componentes
+reusables construidos sobre ellas, más hooks, types y utils.
 
-## Dependency direction
+## Dirección de dependencias
 
-app/ -> features/ and shared/
-features/ -> shared/, and other features only through their index.ts
-shared/ -> nothing from features/ or app/
+app/ -> features/ y shared/
+features/ -> shared/, y otras features solo a través de su index.ts
+shared/ -> nada de features/ ni de app/
 
-## Target file tree
+## Árbol de archivos objetivo
 
 ```
 my-app/
-├── app/                              # Next.js App Router | routing & composition only
+├── app/                              # Next.js App Router | solo routing y composición
 │   ├── layout.tsx
 │   ├── page.tsx
 │   ├── (auth)/
-│   │   ├── login/page.tsx            # composes features/auth
+│   │   ├── login/page.tsx            # compone features/auth
 │   │   └── register/page.tsx
 │   ├── (dashboard)/
 │   │   ├── layout.tsx
-│   │   ├── dashboard/page.tsx        # composes features/dashboard
+│   │   ├── dashboard/page.tsx        # compone features/dashboard
 │   │   └── items/
-│   │       ├── page.tsx              # composes features/items -> <ItemTable />
-│   │       └── [id]/page.tsx         # composes features/items -> <ItemDetail />
+│   │       ├── page.tsx              # compone features/items -> <ItemTable />
+│   │       └── [id]/page.tsx         # compone features/items -> <ItemDetail />
 │   ├── api/
-│   │   └── external-service/route.ts # proxy to an external API (hides keys)
+│   │   └── external-service/route.ts # proxy a una API externa (oculta claves)
 │   ├── globals.css
 │   └── favicon.ico
 │
-├── features/                         # each folder is a self-contained business domain
+├── features/                         # cada carpeta es un dominio de negocio autocontenido
 │   ├── auth/
 │   │   ├── components/               # LoginForm, RegisterForm
 │   │   ├── hooks/                    # useAuth
 │   │   ├── schemas/                  # loginSchema, registerSchema (Zod)
 │   │   ├── types/                    # User, Session
 │   │   ├── constants.ts
-│   │   └── index.ts                  # public API (barrel export)
+│   │   └── index.ts                  # API pública (barrel export)
 │   │
 │   ├── dashboard/
 │   │   ├── components/               # MetricCard, Chart
@@ -60,7 +63,7 @@ my-app/
 │   │   ├── types/
 │   │   └── index.ts
 │   │
-│   ├── items/                        # generic CRUD/listing example
+│   ├── items/                        # ejemplo genérico de CRUD/listado
 │   │   ├── components/
 │   │   │   ├── ItemTable.tsx
 │   │   │   ├── ItemForm.tsx
@@ -75,23 +78,24 @@ my-app/
 │   │   ├── constants.ts
 │   │   └── index.ts
 │   │
-│   ├── navigation/                   # sidebar/navbar as a feature (not a "widget")
+│   ├── navigation/                   # sidebar/navbar como feature (no como "widget")
 │   │   ├── components/
 │   │   ├── hooks/
 │   │   └── index.ts
 │   │
-│   └── theme/                        # light/dark toggle
+│   └── theme/                        # toggle de light/dark
 │       ├── components/
 │       ├── hooks/
 │       └── index.ts
 │
-├── shared/                           # only what's 100% business-agnostic
-│   ├── ui/                           # shadcn: Button, Input, Table, Dialog
-│   ├── components/                   # DataTable, Pagination, EmptyState, Spinner
+├── shared/                           # solo lo que es 100% agnóstico de negocio
+│   ├── components/
+│   │   ├── ui/                       # shadcn: Button, Input, Table, Dialog
+│   │   └── common/                   # construidos sobre shadcn: DataTable, Pagination, EmptyState, Spinner
 │   ├── hooks/                        # useDebounce, useMediaQuery
-│   ├── mock/                         # dummy data genuinely shared across features
+│   ├── mock/                         # datos dummy realmente compartidos entre features
 │   ├── types/                        # ApiResponse<T>, PaginatedResponse<T>
-│   ├── utils/                        # cn, formatDate, slugify
+│   ├── utils/                        # styles.ts (cn), formatDate, slugify
 │   ├── constants/
 │   └── fonts.ts
 │
