@@ -1,18 +1,10 @@
 import { cn } from "cn"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card"
 
 interface BaseCardProps {
   title: string
   description?: string
   children: React.ReactNode
-  footer: React.ReactNode
   cardClassName?: string
   headerClassName?: string
 }
@@ -20,7 +12,6 @@ interface BaseCardProps {
 export const BaseCard = ({
   title,
   description,
-  footer,
   children,
   cardClassName,
   headerClassName,
@@ -35,8 +26,7 @@ export const BaseCard = ({
           <CardDescription className="text-xs">{description}</CardDescription>
         )}
       </CardHeader>
-      <CardContent className="p-0">{children}</CardContent>
-      <CardFooter className="w-full p-0">{footer}</CardFooter>
+      {children}
     </Card>
   )
 }
