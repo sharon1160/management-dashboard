@@ -11,7 +11,7 @@ import { SocialLoginSection } from "./components/social-login-section/SocialLogi
 export const RegisterFormCard = () => {
   const handleSubmit: React.SubmitEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
-    // TODO: connect to register mutation
+    // TODO: read form values via FormData(event.currentTarget) and connect to register mutation
   }
 
   return (
@@ -23,7 +23,7 @@ export const RegisterFormCard = () => {
     >
       <form onSubmit={handleSubmit} className="contents">
         <CardContent className="p-0">
-          <div className="mb-6">
+          <div className="flex flex-col gap-4 mb-6">
             <RegisterFormContent />
             <span className="text-xs text-muted-foreground">
               Al registrarte aceptas los{" "}
@@ -31,7 +31,7 @@ export const RegisterFormCard = () => {
                 href="/terms-of-use"
                 className={cn(
                   buttonVariants({ variant: "link" }),
-                  "h-auto p-0 text-xs underline inline whitespace-normal",
+                  "h-auto p-0 text-xs underline underline-offset-[3px] inline whitespace-normal",
                 )}
               >
                 Términos de uso de LVL Consulting
@@ -40,7 +40,7 @@ export const RegisterFormCard = () => {
           </div>
         </CardContent>
         <CardFooter className="w-full p-0 flex flex-col items-center gap-5.5">
-          <Button className="w-full">Registrarse</Button>
+          <Button className="h-8.5 w-full text-xs">Registrarse</Button>
           <SocialLoginSection />
         </CardFooter>
       </form>
