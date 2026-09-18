@@ -55,6 +55,8 @@ export const RegisterFormCard = () => {
                 Al registrarte aceptas los{" "}
                 <Link
                   href="/terms-of-use"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={cn(
                     buttonVariants({ variant: "link" }),
                     "h-auto p-0 text-xs underline underline-offset-[3px] inline whitespace-normal",
