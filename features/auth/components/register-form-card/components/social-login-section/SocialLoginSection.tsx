@@ -7,7 +7,7 @@ import { AdobeIcon } from "./icons/AdobeIcon"
 export const SocialLoginSection = () => {
   return (
     <div className="flex flex-col items-center w-full gap-4">
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 sm:gap-4 w-full">
         <Separator className="flex-1 bg-muted-foreground/70" />
         <span className="text-xs">Crea cuenta con</span>
         <Separator className="flex-1 bg-muted-foreground/70" />

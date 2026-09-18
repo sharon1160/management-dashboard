@@ -11,7 +11,7 @@ export const AuthBackground = ({ children }: { children: React.ReactNode }) => {
         priority
       />
       <div className="absolute inset-0 bg-[#222222]/50" />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 mx-6 sm:mx-0">{children}</div>
     </div>
   )
 }
