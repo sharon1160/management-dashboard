@@ -14,9 +14,11 @@ export function HeaderGreeting({ userName }: HeaderGreetingProps) {
   const date = useClientValue(getTodayLabel, "")
 
   return (
-    <div className="flex flex-col gap-1">
-      <p className="text-sm font-medium">¡Te damos la bienvenida {userName}!</p>
-      <p className="text-xs">{date}</p>
+    <div className="flex min-w-0 flex-col gap-1">
+      <p className="truncate text-sm font-medium">
+        ¡Te damos la bienvenida {userName}!
+      </p>
+      <p className="hidden truncate text-xs @md:block">{date}</p>
     </div>
   )
 }

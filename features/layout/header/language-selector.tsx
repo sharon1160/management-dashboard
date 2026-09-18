@@ -35,7 +35,9 @@ export function LanguageSelector({
             className="text-xs cursor-pointer"
           >
             <Image src={flagSrc} alt="" width={22} height={16} />
-            {label}
+            <span className="in-data-[slot=select-value]:hidden @2xl:in-data-[slot=select-value]:inline">
+              {label}
+            </span>
           </SelectItem>
         ))}
       </SelectContent>

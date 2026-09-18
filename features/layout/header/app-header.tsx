@@ -1,6 +1,7 @@
-import { LogOut, User } from "lucide-react"
+import { LogOut, Menu, User } from "lucide-react"
 
 import { DropdownMenuItem } from "@/shared/components/ui/dropdown-menu"
+import { SidebarTrigger } from "@/shared/components/ui/sidebar"
 import { HEADER_ACTIONS, DEFAULT_LANGUAGE_CODE, LANGUAGES } from "./constants"
 import { HeaderActions } from "./header-actions"
 import { HeaderGreeting } from "./header-greeting"
@@ -14,10 +15,15 @@ interface AppHeaderProps {
 
 export function AppHeader({ user }: AppHeaderProps) {
   return (
-    <header className="flex h-17.5 border-b bg-background">
-      <div className="flex flex-1 items-center justify-between gap-4 p-4.5">
-        <HeaderGreeting userName={user.firstName} />
-        <div className="flex items-center gap-2">
+    <header className="@container flex h-17.5 border-b bg-background">
+      <div className="flex min-w-0 flex-1 items-center justify-between gap-4 p-4.5">
+        <div className="flex min-w-0 items-center gap-3">
+          <SidebarTrigger className="md:hidden">
+            <Menu />
+          </SidebarTrigger>
+          <HeaderGreeting userName={user.firstName} />
+        </div>
+        <div className="flex shrink-0 items-center gap-2">
           <LanguageSelector
             languages={LANGUAGES}
             defaultValue={DEFAULT_LANGUAGE_CODE}
