@@ -92,7 +92,6 @@ export function AppSidebar() {
       <SidebarContent className={sidebarSlotPaddingX}>
         <NavMain items={navItems} />
       </SidebarContent>
-      <SidebarFooter className={cn("py-4", sidebarSlotPaddingX)} />
     </Sidebar>
   )
 }
