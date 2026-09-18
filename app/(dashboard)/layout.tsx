@@ -1,11 +1,20 @@
-import { AppSidebar } from "@/features/layout/sidebar/app-sidebar"
-import { SidebarProvider } from "@/shared/components/ui/sidebar"
+import { AppHeader, AppSidebar, type HeaderUser } from "@/features/layout"
+import { SidebarInset, SidebarProvider } from "@/shared/components/ui/sidebar"
+
+const CURRENT_USER: HeaderUser = {
+  fullName: "Miguel Liberato",
+  firstName: "Miguel",
+  role: "CEO LVL Consulting",
+}
 
 export default function DashboardLayout({ children }: LayoutProps<"/">) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>{children}</main>
+      <SidebarInset>
+        <AppHeader user={CURRENT_USER} />
+        {children}
+      </SidebarInset>
     </SidebarProvider>
   )
 }

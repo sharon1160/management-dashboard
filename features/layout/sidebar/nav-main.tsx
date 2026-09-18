@@ -42,9 +42,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
 
   return (
     <SidebarGroup className="p-0">
-      <SidebarGroupLabel className="h-fit mb-4">
-        <span>Menu</span>
-      </SidebarGroupLabel>
+      <SidebarGroupLabel className="h-fit mb-4">Menu</SidebarGroupLabel>
       <SidebarMenu className="gap-3">
         {items.map((item) => {
           const isActive = pathname.startsWith(item.href)

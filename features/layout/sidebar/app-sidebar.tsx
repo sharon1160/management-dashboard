@@ -13,7 +13,6 @@ import { cn } from "cn"
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
 } from "@/shared/components/ui/sidebar"
 import { AppRoutes } from "@/shared/constants/routes-enum"
