@@ -20,6 +20,11 @@ específica, va en esa feature, no aquí. components/ui/ tiene las
 primitivas crudas de shadcn, components/common/ tiene componentes
 reusables construidos sobre ellas, más hooks, types y utils.
 
+Cuando una feature tiene varias pantallas, cada pantalla es una carpeta
+autocontenida dentro de la feature (ver "Features con varias pantallas"
+más abajo). Las carpetas de feature se nombran por dominio, no por URL:
+la estructura de rutas vive solo en app/.
+
 ## Dirección de dependencias
 
 app/ -> features/ y shared/
@@ -107,3 +112,39 @@ my-app/
 ├── tailwind.config.ts
 └── tsconfig.json
 ```
+
+## Features con varias pantallas
+
+Si una feature agrupa varias pantallas del mismo dominio, cada pantalla
+lleva su propia carpeta con sus components/, hooks/, schemas/, data/ y
+constants.ts. La carpeta se nombra como la sección del sidebar, en inglés.
+El index.ts de la raíz exporta las pantallas y sigue siendo la única API
+pública. Una pantalla no importa de otra: si algo se comparte entre
+pantallas, va en una carpeta común dentro de la feature (o en shared/ si es
+agnóstico de negocio).
+
+Ejemplo real, features/web-pages/:
+
+```
+features/web-pages/
+├── index.ts                  # exporta WebPages y Administrator
+├── web-pages/                # sidebar: "Páginas webs" (listado)
+│   ├── web-pages.tsx         # pantalla, la usa app/(dashboard)/paginas-webs/page.tsx
+│   ├── components/
+│   ├── hooks/
+│   ├── schemas/
+│   ├── types/
+│   ├── utils/
+│   ├── data/
+│   └── constants.ts
+└── administrator/            # sidebar: "Administrador" (formulario)
+    ├── administrator.tsx     # pantalla, la usa app/(dashboard)/paginas-webs/administrador/page.tsx
+    ├── components/
+    ├── hooks/
+    ├── schemas/
+    ├── data/
+    └── constants.ts
+```
+
+Las features con una sola pantalla (auth, dashboard) mantienen la
+estructura plana del árbol de arriba.
