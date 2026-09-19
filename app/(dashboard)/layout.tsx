@@ -11,9 +11,11 @@ export default function DashboardLayout({ children }: LayoutProps<"/">) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className="min-w-0">
+      <SidebarInset className="h-svh min-w-0">
         <AppHeader user={CURRENT_USER} />
-        {children}
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+          {children}
+        </div>
       </SidebarInset>
     </SidebarProvider>
   )

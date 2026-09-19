@@ -25,6 +25,7 @@ export interface NavItem {
   title: string
   href: string
   icon: LucideIcon
+  navigable?: boolean
   items?: {
     title: string
     href: string
@@ -65,6 +66,14 @@ export function NavMain({ items }: { items: NavItem[] }) {
             )
           }
 
+          const parentContent = (
+            <>
+              <item.icon />
+              <span className="whitespace-nowrap">{item.title}</span>
+              <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+            </>
+          )
+
           return (
             <Collapsible
               key={item.href}
@@ -75,6 +84,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
                   <SidebarMenuButton
+                    asChild={item.navigable}
                     isActive={isActive}
                     tooltip={item.title}
                     className={cn(
@@ -83,9 +93,11 @@ export function NavMain({ items }: { items: NavItem[] }) {
                       PARENT_BUTTON_ACTIVE,
                     )}
                   >
-                    <item.icon />
-                    <span className="whitespace-nowrap">{item.title}</span>
-                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                    {item.navigable ? (
+                      <Link href={item.href}>{parentContent}</Link>
+                    ) : (
+                      parentContent
+                    )}
                   </SidebarMenuButton>
                 </CollapsibleTrigger>
                 <CollapsibleContent>

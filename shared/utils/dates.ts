@@ -21,3 +21,15 @@ export function formatLongDate(date: Date, locale: string): string {
 
   return `${capitalize(part("weekday"))}, ${part("day")} de ${part("month")}, ${part("year")}`
 }
+
+const pad2 = (value: number) => String(value).padStart(2, "0")
+
+export function formatShortDateTime(iso: string): string {
+  const date = new Date(iso)
+  const day = pad2(date.getDate())
+  const month = pad2(date.getMonth() + 1)
+  const year = pad2(date.getFullYear() % 100)
+  const time = `${date.getHours()}:${pad2(date.getMinutes())}`
+
+  return `${day}/${month}/${year} - ${time} hrs.`
+}
