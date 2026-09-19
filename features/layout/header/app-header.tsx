@@ -15,7 +15,7 @@ interface AppHeaderProps {
 
 export function AppHeader({ user }: AppHeaderProps) {
   return (
-    <header className="@container flex h-17.5 border-b bg-background">
+    <header className="@container sticky top-0 z-10 flex h-17.5 border-b bg-background">
       <div className="flex min-w-0 flex-1 items-center justify-between gap-4 p-4.5">
         <div className="flex min-w-0 items-center gap-3">
           <SidebarTrigger className="md:hidden">
