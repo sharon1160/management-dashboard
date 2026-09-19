@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Toaster } from "@/shared/components/ui/sonner"
+import { APP_LOCALE } from "@/shared/constants/locale"
+import { TooltipProvider } from "@/shared/components/ui/tooltip"
 import "./globals.css"
 import { cn } from "@/shared/utils/styles"
 
@@ -13,9 +15,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-PE" className={cn("h-full", "antialiased", inter.variable)}>
+    <html lang={APP_LOCALE} className={cn("h-full", "antialiased", inter.variable)}>
       <body className="min-h-full flex flex-col">
-        {children}
+        <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
         <Toaster position="top-center" />
       </body>
     </html>
