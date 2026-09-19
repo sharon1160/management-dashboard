@@ -1,5 +1,1 @@
-export { MetricCard } from "./components/metric-card"
-export { SalesHistoryChart } from "./components/sales-history-chart"
-export { METRICS } from "./data/metrics"
-export { SALES_HISTORY } from "./data/sales-history"
-export type { Metric } from "./types"
+export { Dashboard } from "./dashboard"
