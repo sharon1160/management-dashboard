@@ -1,0 +1,18 @@
+[
+  {
+    "id": "referrals-web",
+    "count": 1024,
+    "label": "Referidos",
+    "channel": "Páginas web",
+    "percentage": 61,
+    "color": "chart-1"
+  },
+  {
+    "id": "referrals-apps",
+    "count": 1024,
+    "label": "Referidos",
+    "channel": "Apps",
+    "percentage": 61,
+    "color": "chart-2"
+  }
+]

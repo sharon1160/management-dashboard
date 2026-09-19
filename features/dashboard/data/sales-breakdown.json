@@ -1,0 +1,23 @@
+{
+  "distribution": [
+    { "id": "apps", "label": "Apps", "value": 17, "color": "chart-3" },
+    { "id": "web", "label": "Páginas web", "value": 36, "color": "chart-1" },
+    { "id": "store", "label": "Tienda", "value": 47, "color": "chart-2" }
+  ],
+  "periods": [
+    { "id": "annual", "label": "Anual", "percentage": 100, "amount": "S/4500" },
+    {
+      "id": "monthly",
+      "label": "Mensual",
+      "percentage": 60,
+      "amount": "S/4500"
+    },
+    {
+      "id": "weekly",
+      "label": "Semanal",
+      "percentage": 20,
+      "amount": "S/4500"
+    },
+    { "id": "daily", "label": "Diario", "percentage": 30, "amount": "S/4500" }
+  ]
+}
