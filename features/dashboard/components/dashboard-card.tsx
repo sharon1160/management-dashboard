@@ -8,7 +8,7 @@ interface DashboardCardProps {
 
 export function DashboardCard({ className, children }: DashboardCardProps) {
   return (
-    <Card className="flex-1 py-7.5">
+    <Card className="flex-1 py-6.25">
       <CardContent className={cn("flex-1 px-4.5", className)}>
         {children}
       </CardContent>

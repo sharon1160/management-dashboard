@@ -18,11 +18,11 @@ interface ReferralsCardProps {
 
 export function ReferralsCard({ referrals }: ReferralsCardProps) {
   return (
-    <DashboardCard className="justify-center gap-6">
+    <DashboardCard className="justify-center gap-5.5">
       {referrals.map(({ id, count, label, channel, percentage, color }) => (
-        <div key={id} className="flex flex-col gap-1">
-          <p className="text-sm font-bold">{count}</p>
-          <div className="flex items-center justify-between text-[10px]">
+        <div key={id} className="flex flex-col gap-0.5">
+          <p className="text-sm leading-tight font-bold">{count}</p>
+          <div className="flex items-center justify-between text-[10px] leading-tight">
             <span>{label}</span>
             <span>{percentage}%</span>
           </div>
