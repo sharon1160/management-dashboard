@@ -1,10 +1,9 @@
-export type MetricTrend = "positive" | "negative"
+import type { z } from "zod"
 
-export interface Metric {
-  id: string
-  label: string
-  value: string
-  change: string
-  trend: MetricTrend
-  changeLabel: string
-}
+import type { metricSchema } from "../schemas/metric.schema"
+import type { salesHistoryPointSchema } from "../schemas/sales-history.schema"
+
+export type Metric = z.infer<typeof metricSchema>
+export type MetricTrend = Metric["trend"]
+
+export type SalesHistoryPoint = z.infer<typeof salesHistoryPointSchema>

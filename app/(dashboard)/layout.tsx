@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }: LayoutProps<"/">) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
+      <SidebarInset className="min-w-0">
         <AppHeader user={CURRENT_USER} />
         {children}
       </SidebarInset>

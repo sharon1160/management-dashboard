@@ -1,5 +1,12 @@
 import { capitalize } from "@/shared/utils/strings"
 
+/** Formats a date's weekday as "Lunes". */
+export function formatWeekday(date: Date, locale: string): string {
+  return capitalize(
+    new Intl.DateTimeFormat(locale, { weekday: "long" }).format(date),
+  )
+}
+
 /** Formats a date as "Monday, April 15, 2024". */
 export function formatLongDate(date: Date, locale: string): string {
   const parts = new Intl.DateTimeFormat(locale, {

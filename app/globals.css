@@ -78,6 +78,7 @@
   --chart-3: oklch(0.3139 0.0205 269.47);
   --chart-4: oklch(0.6878 0.1421 160.8);
   --chart-5: oklch(0.6239 0.1176 255.68);
+  --chart-sales: oklch(0.8214 0.1564 165.97);
   --radius: 0.625rem;
   --sidebar: oklch(0.9904 0.0045 258.32);
   --sidebar-foreground: oklch(0.4695 0.0317 271.37);
@@ -116,6 +117,7 @@
   --chart-3: oklch(0.75 0.03 269.47);
   --chart-4: oklch(0.7 0.14 160.8);
   --chart-5: oklch(0.6 0.11 255.68);
+  --chart-sales: oklch(0.8214 0.1564 165.97);
   --radius: 0.625rem;
   --sidebar: oklch(0.19 0.01 258.32);
   --sidebar-foreground: oklch(0.88 0.015 271.37);

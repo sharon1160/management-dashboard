@@ -1,4 +1,4 @@
-import type { Metric } from "../types"
+import { metricsSchema } from "../schemas/metric.schema"
 import metricsData from "./metrics.json"
 
-export const METRICS = metricsData as Metric[]
+export const METRICS = metricsSchema.parse(metricsData)
