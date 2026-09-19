@@ -1,12 +1,14 @@
 "use client"
 
 import { Filter, Plus } from "lucide-react"
+import Link from "next/link"
 
 import { PageSizeSelect } from "@/shared/components/common/PageSizeSelect"
 import { SectionTitle } from "@/shared/components/common/SectionTitle"
 import { TablePagination } from "@/shared/components/common/TablePagination"
 import { Button } from "@/shared/components/ui/button"
 import { Card } from "@/shared/components/ui/card"
+import { AppRoutes } from "@/shared/constants/routes-enum"
 
 import { WebPagesTable } from "./components/web-pages-table"
 import { PAGE_SIZE_OPTIONS } from "./constants"
@@ -36,8 +38,10 @@ export function WebPages() {
           <Button variant="outline" className="px-2 text-xs">
             <Filter /> Filtrar
           </Button>
-          <Button className="text-xs">
-            <Plus /> Agregar categoría
+          <Button asChild className="text-xs">
+            <Link href={AppRoutes.PAGINAS_WEBS_ADMINISTRADOR}>
+              <Plus /> Agregar categoría
+            </Link>
           </Button>
         </div>
       </div>

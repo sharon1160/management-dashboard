@@ -1,0 +1,13 @@
+{
+  "companies": [
+    { "value": "lvl-consulting", "label": "LVL Consulting" },
+    { "value": "lvl-logistics", "label": "LVL Logística" },
+    { "value": "lvl-accounting", "label": "LVL Estudios Contables" }
+  ],
+  "companyTypes": [
+    { "value": "sac", "label": "S.A.C." },
+    { "value": "sa", "label": "S.A." },
+    { "value": "srl", "label": "S.R.L." },
+    { "value": "eirl", "label": "E.I.R.L." }
+  ]
+}
