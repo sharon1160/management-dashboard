@@ -15,7 +15,6 @@ export default function DashboardNotFound() {
         />
       </div>
 
-      {/* <FileX className="text-muted-foreground mb-2 size-24" strokeWidth={1.25} /> */}
       <h1 className="text-2xl font-semibold">Página no encontrada</h1>
       <p className="text-muted-foreground max-w-md text-sm">
         Aún estamos trabajando en esto.
