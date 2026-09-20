@@ -8,7 +8,7 @@ interface FormCardProps {
 export function FormCard({ className, children }: FormCardProps) {
   return (
     <Card className={className}>
-      <CardContent className="flex-1 gap-4 px-4.5 lg:min-h-0">
+      <CardContent className="flex-1 gap-4 px-4.5">
         {children}
       </CardContent>
     </Card>

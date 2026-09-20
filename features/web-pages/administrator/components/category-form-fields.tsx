@@ -54,7 +54,7 @@ export function CategoryFormFields() {
         placeholder="Seleccionar tipo de empresa"
       />
 
-      <FormField label="Descripción" className="lg:min-h-0">
+      <FormField label="Descripción">
         {(controlProps) => (
           <>
             <Textarea

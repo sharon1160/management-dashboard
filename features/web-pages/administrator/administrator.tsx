@@ -25,7 +25,7 @@ export function Administrator() {
     createContactForm(form.getValues(), contactForm)
 
   return (
-    <div className="flex flex-1 flex-col gap-3 p-4 md:p-4.5 lg:min-h-0">
+    <div className="flex flex-1 flex-col gap-3 p-4 md:p-4.5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex flex-col gap-1">
           <SectionTitle as="h1">Nuevo formulario</SectionTitle>
@@ -41,7 +41,7 @@ export function Administrator() {
           id={CATEGORY_FORM_ID}
           onSubmit={handleSubmit}
           noValidate
-          className="grid gap-5 lg:min-h-0 lg:grid-cols-[2fr_1.3fr] lg:grid-rows-[minmax(0,auto)] lg:content-start"
+          className="grid gap-5 lg:grid-cols-[2fr_1.3fr] lg:content-start"
         >
           <CategoryFormFields />
           <DocumentsCard />
