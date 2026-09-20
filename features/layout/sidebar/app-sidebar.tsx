@@ -43,7 +43,6 @@ const navItems: NavItem[] = [
     title: "Páginas webs",
     href: AppRoutes.PAGINAS_WEBS,
     icon: Monitor,
-    navigable: true,
     items: [
       { title: "Administrador", href: AppRoutes.PAGINAS_WEBS_ADMINISTRADOR },
       {
