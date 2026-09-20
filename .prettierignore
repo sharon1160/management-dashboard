@@ -6,3 +6,4 @@ public
 *.tsbuildinfo
 pnpm-lock.yaml
 .husky
+**/components/ui

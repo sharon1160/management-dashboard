@@ -36,18 +36,13 @@ export interface NavItem {
 const NAV_BUTTON_FONT =
   "font-medium hover:font-semibold data-active:font-semibold"
 const SUB_BUTTON_INDENT = "pl-9.5"
-// When a sub-item is selected, the parent only gets colored text (no background),
-// except in collapsed icon mode where the background is the only indicator.
 const PARENT_TEXT_ONLY_ACTIVE =
   "data-active:bg-transparent data-active:text-primary group-data-[collapsible=icon]:data-active:bg-sidebar-accent group-data-[collapsible=icon]:data-active:text-sidebar-accent-foreground"
 
-// Segment-aware prefix match: "/apps" matches "/apps" and "/apps/x", not "/apps-foo".
 function matchesPath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`)
 }
 
-// The most specific sub-item matching the path wins, so "/productos" isn't
-// highlighted while on "/productos/categorias".
 function getActiveSubHref(pathname: string, subItems: NavItem["items"]) {
   return subItems
     ?.filter((sub) => matchesPath(pathname, sub.href))
@@ -60,8 +55,6 @@ export function NavMain({ items }: { items: NavItem[] }) {
     matchesPath(pathname, item.href),
   )?.href
 
-  // Accordion: only one parent's submenu is open at a time. It starts open for
-  // the current route, then only the arrow toggles it.
   const [openHref, setOpenHref] = useState<string | null>(
     activeParentHref ?? null,
   )
