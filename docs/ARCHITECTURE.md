@@ -142,6 +142,8 @@ features/web-pages/
     ├── components/
     ├── hooks/
     ├── schemas/
+    ├── types/
+    ├── utils/
     ├── data/
     └── constants.ts
 ```
