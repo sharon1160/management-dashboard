@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
     href: AppRoutes.PRODUCTOS,
     icon: ClipboardCheck,
     items: [
-      { title: "Todos los productos", href: AppRoutes.PRODUCTOS },
+      { title: "Todos los productos", href: AppRoutes.PRODUCTOS_TODOS },
       { title: "Categorías", href: AppRoutes.PRODUCTOS_CATEGORIAS },
     ],
   },
@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
     title: "Apps",
     href: AppRoutes.APPS,
     icon: TabletSmartphone,
-    items: [{ title: "Todas las apps", href: AppRoutes.APPS }],
+    items: [{ title: "Todas las apps", href: AppRoutes.APPS_TODAS }],
   },
   {
     title: "Páginas webs",
@@ -60,19 +60,26 @@ const navItems: NavItem[] = [
     title: "Servidores",
     href: AppRoutes.SERVIDORES,
     icon: Server,
-    items: [{ title: "Todos los servidores", href: AppRoutes.SERVIDORES }],
+    items: [
+      { title: "Todos los servidores", href: AppRoutes.SERVIDORES_TODOS },
+    ],
   },
   {
     title: "Tienda",
     href: AppRoutes.TIENDA,
     icon: Monitor,
-    items: [{ title: "Todas las tiendas", href: AppRoutes.TIENDA }],
+    items: [{ title: "Todas las tiendas", href: AppRoutes.TIENDA_TODAS }],
   },
   {
     title: "Centro de Ayuda",
     href: AppRoutes.CENTRO_DE_AYUDA,
     icon: Server,
-    items: [{ title: "Todos los artículos", href: AppRoutes.CENTRO_DE_AYUDA }],
+    items: [
+      {
+        title: "Todos los artículos",
+        href: AppRoutes.CENTRO_DE_AYUDA_ARTICULOS,
+      },
+    ],
   },
 ]
 
