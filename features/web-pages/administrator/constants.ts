@@ -8,3 +8,7 @@ export const ACCEPTED_DOCUMENTS = {
 } as const
 
 export const MAX_DESCRIPTION_LENGTH = 1500
+
+export const CONTACT_FORM_ID = "contact-form"
+
+export const TERMS_URL_PREFIX = "https://"
