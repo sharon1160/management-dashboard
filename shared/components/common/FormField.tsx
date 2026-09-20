@@ -12,6 +12,7 @@ export interface FormFieldControlProps {
 
 interface FormFieldProps {
   label: string
+  hideLabel?: boolean
   required?: boolean
   error?: string
   className?: string
@@ -20,6 +21,7 @@ interface FormFieldProps {
 
 export const FormField = ({
   label,
+  hideLabel,
   required,
   error,
   className,
@@ -30,7 +32,10 @@ export const FormField = ({
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <Label htmlFor={id} className="gap-0 text-xs">
+      <Label
+        htmlFor={id}
+        className={cn("gap-0 text-xs", hideLabel && "sr-only")}
+      >
         {label}
         {required && (
           <span aria-hidden className="text-destructive-foreground">

@@ -1,18 +1,28 @@
 "use client"
 
+import { useState } from "react"
 import { FormProvider } from "react-hook-form"
 
 import { SectionTitle } from "@/shared/components/common/SectionTitle"
 
 import { CategoryFormFields } from "./components/category-form-fields"
 import { CategoryFormSaveButton } from "./components/category-form-save-button"
+import { ContactFormDialog } from "./components/contact-form-dialog"
 import { DocumentsCard } from "./components/documents-card"
 import { CATEGORY_FORM_ID } from "./constants"
 import { useCategoryForm } from "./hooks/use-category-form"
+import { useCreateContactForm } from "./hooks/use-create-contact-form"
+import type { ContactFormValues } from "./schemas/contact-form.schema"
 
 export function Administrator() {
-  const { form, onSubmit } = useCategoryForm()
-  const { isSubmitting } = form.formState
+  const [isContactDialogOpen, setContactDialogOpen] = useState(false)
+  const { form, handleSubmit } = useCategoryForm(() =>
+    setContactDialogOpen(true),
+  )
+  const { createContactForm } = useCreateContactForm()
+
+  const handleCreate = (contactForm: ContactFormValues) =>
+    createContactForm(form.getValues(), contactForm)
 
   return (
     <div className="flex flex-1 flex-col gap-3 p-4 md:p-4.5 lg:min-h-0">
@@ -23,16 +33,13 @@ export function Administrator() {
             Complete sus datos y continúe con los siguientes pasos.
           </p>
         </div>
-        <CategoryFormSaveButton
-          isSubmitting={isSubmitting}
-          className="hidden sm:inline-flex"
-        />
+        <CategoryFormSaveButton className="hidden sm:inline-flex" />
       </div>
 
       <FormProvider {...form}>
         <form
           id={CATEGORY_FORM_ID}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           noValidate
           className="grid gap-5 lg:min-h-0 lg:grid-cols-[2fr_1.3fr] lg:grid-rows-[minmax(0,auto)] lg:content-start"
         >
@@ -41,9 +48,12 @@ export function Administrator() {
         </form>
       </FormProvider>
 
-      <CategoryFormSaveButton
-        isSubmitting={isSubmitting}
-        className="sm:hidden"
+      <CategoryFormSaveButton className="sm:hidden" />
+
+      <ContactFormDialog
+        open={isContactDialogOpen}
+        onOpenChange={setContactDialogOpen}
+        onCreate={handleCreate}
       />
     </div>
   )

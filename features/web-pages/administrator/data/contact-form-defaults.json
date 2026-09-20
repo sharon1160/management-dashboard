@@ -1,0 +1,31 @@
+{
+  "thanksMessage": "¡Gracias!",
+  "fields": [
+    {
+      "id": "fullName",
+      "label": "Nombres y apellidos",
+      "visible": true,
+      "required": false
+    },
+    {
+      "id": "phone",
+      "label": "Número de teléfono",
+      "visible": false,
+      "required": false
+    },
+    {
+      "id": "email",
+      "label": "Correo electrónico",
+      "visible": false,
+      "required": true
+    },
+    {
+      "id": "companyName",
+      "label": "Nombre de empresa",
+      "visible": true,
+      "required": true
+    },
+    { "id": "country", "label": "País", "visible": true, "required": true },
+    { "id": "message", "label": "Mensaje", "visible": true, "required": true }
+  ]
+}
